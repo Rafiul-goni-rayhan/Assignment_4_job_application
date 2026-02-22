@@ -6,7 +6,7 @@ let jobList = [
     location: "Remote",
     type: "Full-time",
     salary: "$100k - $115k",
-    description: "Build cross-platform mobile applications.",
+    description: "Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide..",
     applicationStatus: "All",
   },
   {
@@ -16,7 +16,7 @@ let jobList = [
     location: "Los Angeles, CA",
     type: "Part-time",
     salary: "$80k - $100k",
-    description: "Create stunning web experiences.",
+    description: "Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends..",
     applicationStatus: "All",
   },
   {
@@ -26,7 +26,7 @@ let jobList = [
     location: "Boston, MA",
     type: "Full-time",
     salary: "$110k - $130k",
-    description: "Transform complex data into visualizations.",
+    description: "Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking..",
     applicationStatus: "All",
   },
   {
@@ -36,7 +36,7 @@ let jobList = [
     location: "Seattle, WA",
     type: "Full-time",
     salary: "$140k - $160k",
-    description: "Design scalable backend systems.",
+    description: "Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure..",
     applicationStatus: "All",
   },
   {
@@ -46,7 +46,7 @@ let jobList = [
     location: "Austin, TX",
     type: "Full-time",
     salary: "$110k - $130k",
-    description: "Create beautiful user interfaces.",
+    description: "CreCreate beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise requiredate beautiful user interfaces.",
     applicationStatus: "All",
   },
   {
@@ -56,7 +56,7 @@ let jobList = [
     location: "New York, NY",
     type: "Full-time",
     salary: "$130k - $150k",
-    description: "Build enterprise applications.",
+    description: "Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.",
     applicationStatus: "All",
   },
   {
@@ -66,7 +66,7 @@ let jobList = [
     location: "Remote",
     type: "Full-time",
     salary: "$140k - $160k",
-    description: "Join our fast-growing startup.",
+    description: "Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included..",
     applicationStatus: "All",
   },
   {
@@ -76,7 +76,7 @@ let jobList = [
     location: "San Francisco, CA",
     type: "Full-time",
     salary: "$150k - $175k",
-    description: "Build reliable web applications.",
+    description: "We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects..",
     applicationStatus: "All",
   },
 ];
@@ -112,15 +112,12 @@ function renderJobCards() {
   }
   updateDashboardStats();
 }
-
-//eikahne card er html banabo
 function createJobCardHTML(job) {
   const isInterview = job.applicationStatus === "Interview";
   const isRejected = job.applicationStatus === "Rejected";
-//   console.log(isInterview);
-  let badgeClass = "hidden";
-  if (isInterview)
-    badgeClass = "bg-green-100 text-green-700 border border-green-200";
+  let badgeClass = "bg-gray-200 text-gray-600 border border-gray-200";
+
+  if (isInterview) badgeClass = "bg-green-100 text-green-700 border border-green-200";
   if (isRejected) badgeClass = "bg-red-100 text-red-700 border border-red-200";
 
   return `
@@ -136,9 +133,9 @@ function createJobCardHTML(job) {
             <span>${job.location}</span> • <span>${job.type}</span> • <span>${job.salary}</span>
         </div>
         
-        <div class="mb-4 ${job.applicationStatus === "All" ? "hidden" : "block"}">
+        <div class="mb-4 block">
             <span class="${badgeClass} text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wide">
-                ${job.applicationStatus}
+                ${job.applicationStatus === "All" ? "Not Applied" : job.applicationStatus}
             </span>
         </div>
 

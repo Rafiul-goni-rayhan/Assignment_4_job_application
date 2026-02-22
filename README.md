@@ -1,7 +1,5 @@
 1-> getElementById finds one ID, getElementsByClassName finds all elements of a class,on the other hand  querySelector/querySelectorAll use CSS selectors to find one or all matching elements.
 
-
-
 2-> Create a new element using document.createElement() and insert it into the DOM using parentElement.appendChild()
 
 3->  Event Bubbling is a process where an event starts from the specific target element and go upward through its parent elements in  DOM tree.
