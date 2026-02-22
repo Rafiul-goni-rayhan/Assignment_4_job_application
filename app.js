@@ -161,5 +161,36 @@ function createJobCardHTML(job) {
 }
 
 
+//tab filter function
+function filterJobs(tabName) {
+  activeFilter = tabName;
+  const tabs = ["All", "Interview", "Rejected"];
+  tabs.forEach((t) => {
+    const btn = document.getElementById(`btn-${t.toLowerCase()}`);
+    if (t === tabName) {
+      btn.className =
+        "px-6 py-2 rounded-md bg-blue-600 text-white font-medium shadow-md transition-all cursor-pointer";
+    } else {
+      btn.className =
+        "px-6 py-2 rounded-md bg-white text-gray-500 border border-gray-200 font-medium hover:bg-gray-50 transition-all cursor-pointer";
+    }
+  });
+
+  activeTab = tabName;
+  renderJobCards();
+}
+
+
+//status change kora 
+
+function toggleJobStatus(id, newStatus) {
+  const targetJob = jobList.find((job) => job.id === id);
+  if (targetJob) {
+      targetJob.applicationStatus = newStatus ;
+    renderJobCards();
+  }
+// console.log(targetJob);
+}
+
 
 renderJobCards();
