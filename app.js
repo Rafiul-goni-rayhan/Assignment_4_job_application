@@ -86,13 +86,13 @@ let activeTab = "All";
 const jobContainer = document.getElementById("job-list");
 const emptyState = document.getElementById("empty-state");
 const tabCountDisplay = document.getElementById("tab-count");
-
+// console.log(jobContainer);
 function renderJobCards() {
   const filteredJobs =
     activeTab === "All"
       ? jobList
       : jobList.filter((job) => job.applicationStatus === activeTab);
-
+// console.log(filterJobs);
   jobContainer.innerHTML = "";
   tabCountDisplay.innerText = filteredJobs.length;
 
@@ -110,7 +110,6 @@ function renderJobCards() {
       jobContainer.innerHTML += card;
     });
   }
-
   updateDashboardStats();
 }
 
@@ -118,6 +117,7 @@ function renderJobCards() {
 function createJobCardHTML(job) {
   const isInterview = job.applicationStatus === "Interview";
   const isRejected = job.applicationStatus === "Rejected";
+//   console.log(isInterview);
   let badgeClass = "hidden";
   if (isInterview)
     badgeClass = "bg-green-100 text-green-700 border border-green-200";
