@@ -160,7 +160,6 @@ function createJobCardHTML(job) {
   `;
 }
 
-
 //tab filter function
 function filterJobs(tabName) {
   activeFilter = tabName;
@@ -180,17 +179,32 @@ function filterJobs(tabName) {
   renderJobCards();
 }
 
-
-//status change kora 
+//status change kora
 
 function toggleJobStatus(id, newStatus) {
   const targetJob = jobList.find((job) => job.id === id);
   if (targetJob) {
-      targetJob.applicationStatus = newStatus ;
+    targetJob.applicationStatus = newStatus;
     renderJobCards();
   }
-// console.log(targetJob);
+  // console.log(targetJob);
 }
 
+//deshbord update
 
+function updateDashboardStats() {
+  document.getElementById("total-count").innerText = jobList.length;
+  document.getElementById("interview-count").innerText = jobList.filter(
+    (job) => job.applicationStatus === "Interview",
+  ).length;
+  document.getElementById("rejected-count").innerText = jobList.filter(
+    (job) => job.applicationStatus === "Rejected",
+  ).length;
+}
+//delete job
+
+function deleteJobEntry(id) {
+  jobList = jobList.filter((job) => job.id !== id);
+  renderJobCards();
+}
 renderJobCards();
